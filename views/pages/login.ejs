@@ -8,8 +8,8 @@
         <form  method="post" action="/login" onsubmit="return validateform()">
           <h2>Login</h2>
           <div class='InputBox'>
-            <input name="roll" onblur="validateroll()" required>
-            <label id="titl">Roll</label>
+            <input name="mail" onblur="validateroll()" required>
+            <label id="titl">Email Address</label>
             <p id="emailerror" style="color: red;"></p>
 
           </div>
@@ -132,7 +132,7 @@
                       }
                       if ($("#email").val() == "") {
                         $("#email").addClass("error")
-                        $("#emailerror").text("Roll No Cannot Be Empty")
+                        $("#emailerror").text("Email No Cannot Be Empty")
                       }
                     }
                     function validatepassword() {

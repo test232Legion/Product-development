@@ -1,77 +1,69 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// const BusSchema = new Schema({
-//     name: {
-//         type: String,
-//         required:true
-//     },
-//     lat: {
-//         type: String,
-//         required:true
-//     },
-//     lon: {
-//         type: String,
-//         required:true
-//     },
-// })
+
 
 const PersonSchema = new Schema({
     name: {
         type: String,
         required: true
     },
-    rollno: {
+    email: {
         type: String,
         required: true,
         unique: true
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
-    details: {
-        department: {
-            type: String,
-        },
-        address: {
-            type: String,
-        },
-        bio: {
-            type: String,
-        },
-        birthday: {
-            type: String,
-        },
-        country: {
-            type: String,
-        },
-        mobile: {
-            type: String,
-        },
-        website: {
-            type: String,
-        },
-    },
+    details: [
+        {
+            username: {
+                type: String,
+            },
+            address: {
+                type: String,
+            },
+            bio: {
+                type: String,
+            },
+            birthday: {
+                type: String,
+            },
+            mobile: {
+                type: String,
+            },
+            linkedaccount: {
+
+            }
+            // friends: [
+            //     {
+
+            //     }
+            // ],
+        }
+    ],
+    posts: [
+        {
+            nameofpost: {
+                type: String,
+            },
+            photo: {
+                date: Buffer,
+                contentType: String
+            },
+            time: {
+                type: Date,
+            }
+        }
+
+    ],
     role: {
         type: String,
         default: "user"
-    },
-    qrsrc: {
-        type: String,
-        required: true
-    },
-    attendance: [
-        {
-            date: {
-                type: Number,
-            },
-            isPresent: {
-                type: Boolean,
-                default: false,
-            }
-        }
-    ]
+    }
+
 
 }, { timestamps: true })
 
