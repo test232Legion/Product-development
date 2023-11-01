@@ -117,28 +117,15 @@ app.get('/register', function (req, res) {
 });
 
 app.get('/dashboard', isAuth, function (req, res) {
-   res.render("pages/dashboard", { auth: req.session.isAuth, data: req.session.data, admin: req.session.isAdmin });
+   res.render("pages/mainpage", { auth: req.session.isAuth, data: req.session.data, admin: req.session.isAdmin });
 });
 
 app.get('/admin/dashboard', isAuth, isAdmin, function (req, res) {
    res.render("pages/admindashboard", { auth: req.session.isAuth, data: req.session.data, admin: req.session.isAdmin })
 })
 
-app.get('/dashboard/details', function (req, res) {
-   res.render('pages/details', { auth: req.session.isAuth, data: req.session.data, admin: req.session.isAdmin });
-});
-app.get('/dashboard/attendence', function (req, res) {
-   res.render('pages/attendence', { auth: req.session.isAuth, data: req.session.data, admin: req.session.isAdmin });
-});
-
-app.get('/dashboard/location', function (req, res) {
-   res.render('pages/location', { auth: req.session.isAuth, data: req.session.data, admin: req.session.isAdmin });
-});
-app.get('/dashboard/support', function (req, res) {
-   res.render('pages/support', { auth: req.session.isAuth, data: req.session.data, admin: req.session.isAdmin });
-});
-app.get('/dashboard/history', function (req, res) {
-   res.render('pages/history', { auth: req.session.isAuth, data: req.session.data, admin: req.session.isAdmin });
+app.get('/dashboard/update', isAuth, function (req, res) {
+   res.render("pages/updateDetails", { auth: req.session.isAuth, data: req.session.data, admin: req.session.isAdmin });
 });
 //end of routes
 

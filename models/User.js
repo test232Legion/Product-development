@@ -53,8 +53,15 @@ const PersonSchema = new Schema({
                 date: Buffer,
                 contentType: String
             },
-            time: {
+            dateofupload: {
                 type: Date,
+            },
+            location: {
+                type: String,
+            },
+            tag: {
+                type: String,
+
             }
         }
 
@@ -68,4 +75,3 @@ const PersonSchema = new Schema({
 }, { timestamps: true })
 
 module.exports = mongoose.model("Person", PersonSchema)
-// module.exports = mongoose.model("Bus", BusSchema)
