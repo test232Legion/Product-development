@@ -14,8 +14,8 @@
 
                         <div class='InputBox'>
                             <span class='Icon'></span>
-                            <input name="roll" id="roll" onblur="validaterollno()" required></input>
-                            <label id="titl" name='email'>Roll</label>
+                            <input name="mail" id="roll" onblur="validatemail()" required></input>
+                            <label id="titl" name='email'>Email address</label>
 
                         </div>
                         <p id="rollerror" style="color: red;"></p>
@@ -37,7 +37,7 @@
                 </div>
                 <br>
                 <button class='RegBtn' onclick="fn()" type='submit'>Register</button>
-            </form>
+                </form>
 
                 <div class='RegisterLink'>
                     <div>
@@ -51,8 +51,12 @@
         </div>
     </div>
     <% if(modal){ %>
-        <div id="myModal" class="modal1"><div class="modal-content1"><span class="close">&times;</span><p>Logout Sucessful</p></div></div>
-    <% } %>
+        <div id="myModal" class="modal1">
+            <div class="modal-content1"><span class="close">&times;</span>
+                <p>Logout Sucessful</p>
+            </div>
+        </div>
+        <% } %>
             </div>
             <link rel="stylesheet" href="Register.css">
             </link>
@@ -60,66 +64,66 @@
             </link>
             <style>
                 .modal1 {
-                  display: block;
-                  position: fixed;
-                  z-index: 1;
-                  padding-top: 100px;
-                  left: 0;
-                  top: 0;
-                  width: 100%;
-                  height: 100%;
-                  overflow: auto;
-                  background-color: rgb(0, 0, 0);
-                  background-color: rgba(0, 0, 0, 0.4);
+                    display: block;
+                    position: fixed;
+                    z-index: 1;
+                    padding-top: 100px;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: auto;
+                    background-color: rgb(0, 0, 0);
+                    background-color: rgba(0, 0, 0, 0.4);
                 }
 
                 /* Modal Content */
                 .modal-content1 {
-                  background-color: #fefefe;
-                  margin: auto;
-                  padding: 20px;
-                  border: 1px solid #888;
-                  width: 80%;
+                    background-color: #fefefe;
+                    margin: auto;
+                    padding: 20px;
+                    border: 1px solid #888;
+                    width: 80%;
                 }
 
                 /* The Close Button */
                 .close {
-                  color: #aaaaaa;
-                  float: right;
-                  font-size: 28px;
-                  font-weight: bold;
+                    color: #aaaaaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
                 }
 
                 .close:hover,
                 .close:focus {
-                  color: #000;
-                  text-decoration: none;
-                  cursor: pointer;
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
                 }
 
 
 
                 #login {
-                  padding-left: 25%;
-                  padding-right: 25%;
+                    padding-left: 25%;
+                    padding-right: 25%;
                 }
 
                 .error {
-                  border: solid 3px red;
+                    border: solid 3px red;
                 }
-              </style>
+            </style>
             <script>
                 var modal = document.getElementById("myModal");
                 var span = document.getElementsByclass("close")[0];
                 span.onclick = function () {
-                  modal.style.display = "none";
-                  console.log("12334");
+                    modal.style.display = "none";
+                    console.log("12334");
                 }
 
                 window.onclick = function (event) {
-                  if (event.target == modal) {
-                    modal.style.display = "none";
-                  }
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
                 }
 
                 function hasNumber(str) {
@@ -127,6 +131,22 @@
                 }
                 function hasalpha(str) {
                     return /[a-z]/i.test(str)
+                }
+                function validatemail() {
+                    if ($("#mail").val().length < 1) {
+                        $("#mail").addClass("error")
+                        $("#nameerror").text("Mail Cannot Be Empty")
+                    }
+                    if (($("#mail").val().length >= 1)) {
+                        $("#mail").removeClass("error")
+                        $("#mail").text("")
+                    }
+                    const valmail = $("#mail").val();
+                    if (!(valmail.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))) {
+                        $("#mail").addClass("error")
+                        $("#nameerror").text("Mail is not in correct format")
+                    }
+
                 }
                 function validatename() {
                     if ($("#name").val().length < 1) {
@@ -143,22 +163,22 @@
                     }
 
                 }
-                function validaterollno() {
-                    if ($("#roll").val() == "") {
-                        $("#roll").addClass("error")
-                        $("#rollerror").text("Roll no cannot be empty")
-                    }
-                    if (($("#roll").val().length >= 1)) {
-                        $("#roll").removeClass("error")
-                        $("#rollerror").text("")
-                    }
-                    if (hasalpha($("#roll").val())) {
-                        $("#roll").addClass("error")
-                        $("#rollerror").text("Roll Number Cannot Contain Alphabets")
-                    }
+                // function validaterollno() {
+                //     if ($("#roll").val() == "") {
+                //         $("#roll").addClass("error")
+                //         $("#rollerror").text("Roll no cannot be empty")
+                //     }
+                //     if (($("#roll").val().length >= 1)) {
+                //         $("#roll").removeClass("error")
+                //         $("#rollerror").text("")
+                //     }
+                //     if (hasalpha($("#roll").val())) {
+                //         $("#roll").addClass("error")
+                //         $("#rollerror").text("Roll Number Cannot Contain Alphabets")
+                //     }
 
 
-                }
+                // }
                 function validatepassword() {
                     if ($("#password").val().length < 1) {
                         $("#password").addClass("error")
@@ -201,11 +221,11 @@
                         $("#rollerror").text("Roll no Cannot Be Empty")
                     }
 
-                    if (hasalpha($("#roll").val())) {
-                        isValid = false
-                        $("#roll").addClass("error")
-                        $("#rollerror").text("Roll Number Cannot Contain Alphabets")
-                    }
+                    // if (hasalpha($("#roll").val())) {
+                    //     isValid = false
+                    //     $("#roll").addClass("error")
+                    //     $("#rollerror").text("Roll Number Cannot Contain Alphabets")
+                    // }
                     if (($("#password").val()).length < 1) {
                         isValid = false
                         $("#password").addClass("error")
@@ -223,11 +243,11 @@
                         $("#passworderror").text("Passwords donot match")
                         $("#confirmpassworderror").text("Passwords donot match")
                     }
-                    if (hasalpha($("#roll").val())) {
-                        isValid = false
-                        $("#roll").addClass("error")
-                        $("#rollerror").text("Roll Number Cannot Contain Alphabets")
-                    }
+                    // if (hasalpha($("#roll").val())) {
+                    //     isValid = false
+                    //     $("#roll").addClass("error")
+                    //     $("#rollerror").text("Roll Number Cannot Contain Alphabets")
+                    // }
                     return isValid
                 }
             </script>

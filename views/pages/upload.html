@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+			padding: 0;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+label, input, select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    border: none;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 60px;
+  background-color: #0696b3;
+  border-radius: 3px;
+  color: white;
+  
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+a {
+			color: #000000;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		
+		a:hover {
+			color: #666;
+		}
+        header {
+			background-color:#007bff;
+			color: #ffffff;
+			padding: 20px;
+			text-align: center;
+		}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Memories</h1>
+        <div class="dropdown">
+            <div class="dropbtn"><img src="/public/user.png" style="width: 40px;position: relative; left: 640px; top: -40px;"  alt=""></div>
+            <div class="dropdown-content">
+              <a href="#">My Profile</a>
+              <br>
+              <a href="#">My Memories</a>
+              <br>
+              <a href="#">Logout</a>
+              <br>
+            </div>
+          </div>
+          
+          
+    </header>
+    <h1>File Upload and Options</h1>
+    <form>
+        <label for="file">Upload a File:</label>
+        <input type="file" id="file" name="file" accept=".jpg, .png, .pdf">
+        
+        <label for="date">Select a Date:</label>
+        <input type="date" id="date" name="date">
+        
+        <label for="location">Location</label>
+        <input type="text" id="file" name="location" >
+        <label for="location">Description</label>
+        <input type="text" id="file" name="desc" >
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
