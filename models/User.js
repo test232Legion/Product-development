@@ -36,12 +36,12 @@ const PersonSchema = new Schema({
             },
             linkedaccount: {
 
-            }
-            // friends: [
-            //     {
+            },
+            friends: [
+                {
 
-            //     }
-            // ],
+                }
+            ],
         }
     ],
     posts: [

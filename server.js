@@ -190,9 +190,9 @@ app.post('/login', async (req, res) => {
 
 })
 app.post("/update", async (req, res) => {
-   const { username,  mail } = req.body;
+   const { username, mail, address, bio } = req.body;
    console.log(mail);
-   const studentupdate = await UserModel.findOneAndUpdate({ "mail": req.session.data.mail },{"details[0].username":username});
+   const studentupdate = await UserModel.findOneAndUpdate({ "mail": req.session.data.mail }, { $set: { "details[0].username": username, "details[0].address": address, "address,details[0].bio": bio } });
 
 })
 
