@@ -1,22 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// const BusSchema = new Schema({
-//     name: {
-//         type: String,
-//         required:true
-//     },
-//     lat: {
-//         type: String,
-//         required:true
-//     },
-//     lon: {
-//         type: String,
-//         required:true
-//     },
-// })
 
-const userSchema = new Schema({
+const personSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -75,5 +61,4 @@ const userSchema = new Schema({
 
 }, { timestamps: true })
 
-module.exports = mongoose.model("User", userSchema)
-// module.exports = mongoose.model("Bus", BusSchema)
+module.exports = mongoose.model("Person", personSchema)
